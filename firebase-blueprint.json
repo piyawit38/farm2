@@ -1,0 +1,56 @@
+{
+  "entities": {
+    "Garden": {
+      "title": "Garden",
+      "description": "Herb Gardens in the 1 Local Government 1 Herb Garden project",
+      "type": "object",
+      "properties": {
+        "gardenId": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "logo": { "type": "string" },
+        "banner": { "type": "string" },
+        "location": { "type": "string" },
+        "openingHours": { "type": "string" },
+        "herbCount": { "type": "number" },
+        "themeColor": { "type": "string" }
+      },
+      "required": ["gardenId", "name"]
+    },
+    "Herb": {
+      "title": "Herb",
+      "description": "Herbal plants in garden",
+      "type": "object",
+      "properties": {
+        "herbId": { "type": "string" },
+        "gardenId": { "type": "string" },
+        "thaiName": { "type": "string" },
+        "scientificName": { "type": "string" },
+        "properties": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["herbId", "gardenId", "thaiName"]
+    },
+    "User": {
+      "title": "User",
+      "description": "Registered learner or admin user profile",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "displayName": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string" },
+        "totalScore": { "type": "number" }
+      },
+      "required": ["userId"]
+    },
+    "AppStore": {
+      "title": "AppStore",
+      "description": "Key value data store synchronization",
+      "type": "object",
+      "properties": {
+        "key": { "type": "string" },
+        "value": { "type": "object" }
+      }
+    }
+  }
+}

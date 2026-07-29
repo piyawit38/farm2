@@ -1,0 +1,10 @@
+{
+  "name": "AI Herbal Learning",
+  "description": "An intelligent herbal learning platform with AI Chat, Vision analysis, interactive quizzes, and digital certificates, starting with the Hat Yai Bio-Wellness Center under the '1 Local Government, 1 Herb Garden' initiative.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

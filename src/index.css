@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", "Inter", system-ui, -apple-system, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Natural Tones custom override of slate (Warm Stone/Off-white) */
+  --color-slate-50: #fafaf9;   /* Warm Cream off-white */
+  --color-slate-100: #f5f5f4;  /* Border light */
+  --color-slate-150: #e7e5e4;
+  --color-slate-200: #e7e5e4;
+  --color-slate-300: #d6d3d1;
+  --color-slate-400: #a8a29e;
+  --color-slate-500: #78716c;  /* Muted text */
+  --color-slate-600: #57534e;
+  --color-slate-700: #44403c;
+  --color-slate-800: #292524;  /* Main text */
+  --color-slate-850: #201d1b;
+  --color-slate-900: #1c1917;  /* Dark card background */
+  --color-slate-950: #0c0a09;
+
+  /* Forest Emerald & Deep Herbal Green override for teal & emerald */
+  --color-teal-50: #f0fdf4;
+  --color-teal-100: #dcfce7;
+  --color-teal-200: #bbf7d0;
+  --color-teal-300: #86efac;
+  --color-teal-400: #4ade80;
+  --color-teal-500: #22c55e;
+  --color-teal-600: #16a34a;   /* Forest Emerald เขียวไพรสด */
+  --color-teal-700: #15803d;   /* Deep Forest */
+  --color-teal-800: #166534;
+  --color-teal-900: #14532d;
+  --color-teal-950: #052e16;
+
+  --color-emerald-50: #f0fdf4;
+  --color-emerald-100: #dcfce7;
+  --color-emerald-200: #bbf7d0;
+  --color-emerald-300: #86efac;
+  --color-emerald-400: #4ade80;
+  --color-emerald-500: #22c55e;
+  --color-emerald-600: #16a34a;
+  --color-emerald-700: #15803d;
+  --color-emerald-800: #166534;
+  --color-emerald-900: #14532d;
+  --color-emerald-950: #052e16;
+
+  /* Warm Amber Gold (ทองขมิ้น / อบเชย) override for amber */
+  --color-amber-50: #fffbeb;
+  --color-amber-100: #fef3c7;
+  --color-amber-200: #fde68a;
+  --color-amber-300: #fcd34d;
+  --color-amber-400: #fbbf24;
+  --color-amber-500: #f59e0b;  /* Turmeric Amber Gold */
+  --color-amber-600: #d97706;  /* Deep Golden Amber */
+  --color-amber-700: #b45309;
+  --color-amber-800: #92400e;
+  --color-amber-900: #78350f;
+  --color-amber-950: #451a03;
+
+  /* Indigo and other accents can play well with warm sand tones or clay */
+  --color-indigo-50: #fcfaf7;
+  --color-indigo-100: #eee7df;
+  --color-indigo-200: #dbcdbd;
+  --color-indigo-300: #bcab99;
+  --color-indigo-400: #a29180;
+  --color-indigo-500: #8b9d83; /* sage as secondary option */
+  --color-indigo-600: #b8907a; /* clay as main accent */
+  --color-indigo-700: #a27c67;
+  --color-indigo-800: #896653;
+  --color-indigo-900: #543b2f;
+
+  /* Custom shadow mapping */
+  --shadow-sm: 0 2px 4px 0 rgba(67, 64, 61, 0.02);
+  --shadow-md: 0 10px 25px -5px rgba(67, 64, 61, 0.05); /* `--card-shadow` */
+  --shadow-lg: 0 20px 30px -10px rgba(67, 64, 61, 0.08);
+}
+
+/* Custom styles for organic soft elements */
+body {
+  font-family: var(--font-sans);
+  background-color: #fafaf9;
+  color: #292524;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark body {
+  background-color: #121914;
+  color: #f5f5f4;
+}
+
+/* Fine-tune scrollbars for natural theme */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dbcdbd;
+  border-radius: 99px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #43403d;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #bcab99;
+}
+
+/* Animations helper */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
