@@ -508,62 +508,54 @@ export const HerbDetail: React.FC = () => {
             <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-2">
               <h3 className="font-bold text-sm sm:text-base flex items-center gap-1.5">
                 <MapPin className="w-5 h-5 text-teal-600" />
-                <span>ตำแหน่งและรหัสคิวอาร์สำหรับพืช</span>
+                <span>ตำแหน่งพืชและรหัสคิวอาร์ (QR Code)</span>
               </h3>
               <button
                 onClick={() => setShowQrModal(true)}
                 className="text-xs font-bold text-teal-600 hover:text-teal-700 dark:text-teal-400 flex items-center gap-1 hover:underline cursor-pointer"
               >
                 <QrCode className="w-3.5 h-3.5" />
-                <span>ขยาย / พิมพ์ QR</span>
+                <span>ดูตัวอย่างแผ่นป้าย QR</span>
               </button>
             </div>
             
             <div className="flex flex-col sm:flex-row items-center gap-4">
-              {/* Real generated QRCodeSVG */}
+              {/* QR Code Placeholder Box */}
               <div
                 onClick={() => setShowQrModal(true)}
-                className="p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 flex flex-col items-center justify-center shrink-0 cursor-pointer hover:border-teal-500 transition-all shadow-xs group"
-                title="คลิกเพื่อขยายและดาวน์โหลด / พิมพ์แผ่น QR Code"
+                className="p-4 bg-slate-50 dark:bg-slate-800/80 rounded-xl border-2 border-dashed border-teal-500/40 dark:border-teal-500/30 flex flex-col items-center justify-center shrink-0 cursor-pointer hover:border-teal-500 transition-all shadow-xs group w-32 h-32 text-center"
+                title="คลิกเพื่อดูตัวอย่างตัวอย่างป้าย QR Code"
               >
-                <div className="p-1.5 bg-white rounded-lg shadow-2xs group-hover:scale-105 transition-transform">
-                  <QRCodeSVG
-                    id="herb-qr-code-svg-page"
-                    value={herbUrl}
-                    size={96}
-                    level="M"
-                    includeMargin={false}
-                  />
-                </div>
-                <span className="text-[9px] font-extrabold text-teal-600 dark:text-teal-400 mt-2 tracking-wider flex items-center gap-1">
-                  <QrCode className="w-3 h-3" />
-                  <span>สแกนเข้าหน้านี้</span>
+                <QrCode className="w-8 h-8 text-teal-600 dark:text-teal-400 group-hover:scale-110 transition-transform" />
+                <span className="text-[10px] font-extrabold text-teal-700 dark:text-teal-300 mt-2 leading-tight">
+                  QR Code พืช
+                </span>
+                <span className="text-[8px] text-slate-400 dark:text-slate-500 font-medium leading-none mt-1">
+                  (เว้นไว้สร้างบนเว็บจริง)
                 </span>
               </div>
 
               <div className="space-y-2 text-left">
-                <span className="text-xs font-bold text-teal-600 dark:text-teal-400 block">พิกัดทางกายภาพในสวน:</span>
-                <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-bold leading-relaxed">
-                  {getDisplayLocation(herb)}
-                </p>
+                <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800 text-[10px] font-bold">
+                  <span>ℹ️ เว้นไว้สร้างอัตโนมัติตาม URL เว็บไซต์จริง</span>
+                </div>
+                <div>
+                  <span className="text-xs font-bold text-teal-600 dark:text-teal-400 block">พิกัดแปลงสมุนไพร:</span>
+                  <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-bold leading-relaxed">
+                    {getDisplayLocation(herb)}
+                  </p>
+                </div>
                 <p className="text-[10px] text-slate-400 dark:text-slate-500 leading-normal">
-                  * คุณสามารถดาวน์โหลดหรือพิมพ์แผ่น QR Code ติดตั้งไว้หน้าแปลงสมุนไพร เพื่อให้ผู้มาเยือนสแกนดูข้อมูลสมุนไพรต้นนี้ได้ทันที
+                  * เมื่อนำระบบขึ้นติดตั้งบนโดเมนจริง ระบบจะสร้าง QR Code ประจำพืชต้นนี้อัตโนมัติ เพื่อพิมพ์แผ่นป้ายติดหน้าแปลงสมุนไพร
                 </p>
                 
                 <div className="flex flex-wrap gap-2 pt-1">
                   <button
-                    onClick={() => handleDownloadQrPng("herb-qr-code-svg-page")}
-                    className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl flex items-center gap-1.5 transition-colors cursor-pointer shadow-xs"
-                  >
-                    <Download className="w-3.5 h-3.5" />
-                    <span>ดาวน์โหลด QR (PNG)</span>
-                  </button>
-                  <button
                     onClick={() => setShowQrModal(true)}
-                    className="px-3 py-1.5 bg-teal-50 hover:bg-teal-100 dark:bg-teal-950/40 dark:hover:bg-teal-900/60 text-teal-700 dark:text-teal-300 text-xs font-bold rounded-xl border border-teal-200 dark:border-teal-800 flex items-center gap-1.5 transition-colors cursor-pointer"
+                    className="px-3.5 py-1.5 bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold rounded-xl flex items-center gap-1.5 transition-colors cursor-pointer shadow-xs"
                   >
-                    <Download className="w-3.5 h-3.5" />
-                    <span>ขยาย / ดาวน์โหลดแผ่นป้าย</span>
+                    <Eye className="w-3.5 h-3.5" />
+                    <span>ดูตัวอย่างแผ่นป้ายพิมพ์</span>
                   </button>
                 </div>
               </div>
@@ -827,7 +819,7 @@ export const HerbDetail: React.FC = () => {
             </div>
 
             <p className="text-xs text-slate-500 dark:text-slate-400">
-              คุณสามารถดาวน์โหลดเป็นไฟล์รูปภาพ PNG เพื่อนำไปพิมพ์และติดตั้งหน้าแปลงสมุนไพร
+              * QR Code จะถูกลิงก์กับโดเมนของเว็บไซต์จริงอัตโนมัติเมื่อนำขึ้นระบบ Production (คุณสามารถดาวน์โหลดแผ่นป้ายฉบับร่างไว้ล่วงหน้าได้)
             </p>
 
             {/* Action Buttons */}
